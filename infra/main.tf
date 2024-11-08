@@ -27,7 +27,7 @@ module "ec2" {
   ami_id                   = var.ec2_ami_id
   instance_type            = "t2.micro"
   tag_name                 = "Ubuntu Linux EC2"
-  public_key               = var.public_key
+  public_key               = "NewDevopsKey"
   subnet_id                = tolist(module.networking.dev_proj_1_public_subnets)[0]
   sg_enable_ssh_https      = module.security_group.sg_ec2_sg_ssh_http_id
   ec2_sg_name_for_python_api     = module.security_group.sg_ec2_for_python_api
@@ -57,12 +57,10 @@ module "alb" {
   lb_listner_port           = 5000
   lb_listner_protocol       = "HTTP"
   lb_listner_default_action = "forward"
-  lb_https_listner_port     = 443
-  lb_https_listner_protocol = "HTTPS"
-  dev_proj_1_acm_arn        = module.aws_ceritification_manager.dev_proj_1_acm_arn
   lb_target_group_attachment_port = 5000
 }
 
+/*
 module "hosted_zone" {
   source          = "./hosted-zone"
   domain_name     = var.domain_name
@@ -75,7 +73,7 @@ module "aws_ceritification_manager" {
   domain_name    = var.domain_name
   hosted_zone_id = module.hosted_zone.hosted_zone_id
 }
-
+*/
 module "rds_db_instance" {
   source               = "./rds"
   db_subnet_group_name = "dev_proj_1_rds_subnet_group"
