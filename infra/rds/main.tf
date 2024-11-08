@@ -16,8 +16,8 @@ resource "aws_db_instance" "default" {
   allocated_storage       = 10
   storage_type            = "gp2"
   engine                  = "mysql"
-  engine_version          = "5.7.33"   # or another version that works with db.t2.micro
-  instance_class          = "db.t3.micro"   # Try using db.t3.micro
+  engine_version          = "5.7.44"  # Use the available version 5.7.44
+  instance_class          = "db.t2.micro"  # Or try db.t3.micro if needed
   identifier              = var.mysql_db_identifier
   username                = var.mysql_username
   password                = var.mysql_password
@@ -29,5 +29,6 @@ resource "aws_db_instance" "default" {
   backup_retention_period = 0
   deletion_protection     = false
 }
+
 
 
