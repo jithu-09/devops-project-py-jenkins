@@ -46,7 +46,7 @@ module "lb_target_group" {
 
 module "alb" {
   source                    = "./load-balancer"
-  lb_name                   = "dev-proj-1-alb"
+  lb_name                   = "dev-proj-1-alb-py"
   is_external               = false
   lb_type                   = "application"
   sg_enable_ssh_https       = module.security_group.sg_ec2_sg_ssh_http_id
