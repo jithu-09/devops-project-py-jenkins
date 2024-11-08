@@ -1,4 +1,4 @@
-variable "domain_name" {}
+/*variable "domain_name" {}
 variable "hosted_zone_id" {}
 
 output "dev_proj_1_acm_arn" {
@@ -32,5 +32,5 @@ resource "aws_route53_record" "validation" {
   type    = each.value.type
   records = [each.value.record]
   ttl     = 60
-}
+}*/
 
